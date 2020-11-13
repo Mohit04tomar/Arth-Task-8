@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hadoop Cluster</title>
+
+    <!-- Styles -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+			<p><b>Hadoop<br> Cluster </b></p>
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                </li>
+                <li>
+                    <a href="#introduction">INTRODUCTION</a>
+                </li>
+                <li>
+                    <a href="#dockerimages">Master Cinfiguration</a>
+				</li>
+				<li>
+                    <a href="#dwdi">Slave Configuration</a>
+                </li>
+       			<li>
+                    <a href="#ddi">Client Configuration</a>
+                </li>
+            </ul>
+        </div>
+        <!-- end of sidebar wrapper -->
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="introduction" class="col-lg-12">
+                        <h1>INTRODUCTION</h1>
+                        <p>Apache Hadoop is a collection of open-source software utilities that facilitates using a network of many computers to solve problems involving massive amounts of data and computation. It provides a software framework for distributed storage and processing of big data using the MapReduce programming model.</p>
+						<p>Hadoop was originally designed for computer clusters built from commodity hardware, which is still the common use. It has since also found use on clusters of higher-end hardware. All the modules in Hadoop are designed with a fundamental assumption that hardware failures are common occurrences and should be automatically handled by the framework.</p>
+						<p>The core of Apache Hadoop consists of a storage part, known as Hadoop Distributed File System (HDFS), and a processing part which is a MapReduce programming model. Hadoop splits files into large blocks and distributes them across nodes in a cluster. It then transfers packaged code into nodes to process the data in parallel. This approach takes advantage of data locality, where nodes manipulate the data they have access to. This allows the dataset to be processed faster and more efficiently than it would be in a more conventional supercomputer architecture that relies on a parallel file system where computation and data are distributed via high-speed networking.</p>
+					</div> <!-- end of introduction -->
+					
+				</div>
+				<div class="row">
+
+					<div class="col-lg-12"><hr></div> <!-- gray separator line -->
+					<div class="row">
+						<div id="dockerimages" class="col-lg-12">
+                    		<center><h1><b>Master Configuration</b></h1></center>
+                    		<form action="/cgi-bin/hadoop/mastconf.py">
+					<center><div class='container'>
+						<div class='row'>
+							<div class='col-6 col-md-4' >
+								<h4>Enter your<br> Master Hadoop name</h4>
+							</div>
+							<div class='col-6 col-md-4' >
+								<input name='osname' style='position: absolute; right: -250px;'  type='text' class='form-control' placeholder='Enter Hadoop Master Name Here'  >
+							</div>
+						</div>
+								
+							<div class="row">
+							    	<div class="col-6 col-md-4">
+							      		<h4> Hadoop Master Configure</h4>
+							    	</div>
+								    <div class="col-6 col-md-4">
+								    	<button type="submit"  style="position: absolute; right: -200px;" class="btn btn-primary " >Master configured</button>
+								    </div>
+								</div>
+
+							    <div class="row">
+							    	<div class="col-6 col-md-4">
+							      		<h4> Hadoop Master Format</h4>
+							    	</div>
+								    <div class="col-6 col-md-4">
+								    	<button type="submit" formaction="/cgi-bin/hadoop/mastformat.py" style="position: absolute; right: -200px;" class="btn btn-primary " >Format</button>
+								    </div>
+								</div>
+
+							    <div class="row">
+							    <div class="col-6 col-md-4">
+							    	<h4> Hadoop Master Start</h4>
+							    </div>
+							    <div class="col-6 col-md-4">
+							    	<button type="submit" formaction="/cgi-bin/hadoop/maststart.py" style="position: absolute; right: -200px;" class="btn btn-primary " >Start</button>
+							    </div>
+							  </div>
+						
+							  <div class='row'>
+								  <div class='col-6 col-md-4'>	
+									<h4>Hadoop Master Stop </h4>
+								  </div>
+								  <div class='col-6 col-md-4'>
+					    			    <button type='submit' formaction='/cgi-bin/hadoop/maststop.py' style='position: absolute; right: -200px ;' class='btn btn-primary'  >Stop</button> 
+								  </div>
+							  </div>
+
+							 <div class='row'>
+                                                                  <div class='col-6 col-md-4'>
+                                                                        <h4> Hadoop Master Status  </h4>
+                                                                  </div>
+                                                                  <div class='col-6 col-md-4'>
+                                                                    <button type='submit' formaction='/cgi-bin/hadoop/maststatus.py' style='position: absolute; right: -200px ;' class='btn btn-primary'  >Stop</button>
+                                                                  </div>
+                                                          </div>
+
+
+							</div></center> 
+							</form>                   		                    
+                    	</div>
+					</div> <!-- end of files structure -->
+
+
+				<div class="col-lg-12"><hr></div> <!-- gray separator line -->
+				<div class="row">
+				<div id="dwdi" class="col-lg-12">
+                    		<center><h1><b>Slave Configuration</b></h1></center>
+                    		<form action="/cgi-bin/hadoop/slav.py">
+					<center><h2>For Configuring Slave</h2></center>
+                    		<center><div class="container">
+					<div class='row'>
+						<div class='col-6 col-md-4'>
+							<h4>Enter Your Slave Name</h4>
+						</div>
+						<div class='col-6 col-md-4'>
+							 <input name='osname' style='position: absolute; right: -250px;'  type='text' class='form-control' placeholder='Enter Hadoop Slave Name Here'  >
+						 </div>
+					</div>
+
+					<div class="row">
+					    	<div class="col-6 col-md-4">
+					      		<h4>Provide Namenode IP</h4>
+					    	</div>
+		            			<div class="col-6 col-md-4">
+							<input name='iadd' class="form-control" style='position: absolute; right: -250px;' type="text" class='form-control' placeholder="0.0.0.0">
+       					        </div>
+					</div><br>
+					<button type="submit"  class="btn btn-primary " >Submit</button><br>
+					<br>
+					<div class=='row'>
+						<div class='col-6 col-md-4'>
+							<center><h4>For Stopping Slave </h4></center>
+						</div>
+						<div class='col-6 col-md-4'>
+							<button type="submit" formaction="/cgi-bin/hadoop/slavestop.py" style='position: absolute; right: -250px ' class="btn btn-primary " >Stop Slave</button></center></div>
+						</div>
+					</div>
+					</div></center>
+				</form>      
+				</div> <!-- end of files structure -->
+
+
+
+				<div class="col-lg-12"><hr></div> <!-- gray separator line -->
+				<div class="row">
+				<div class="col-lg-12" id="ddi">
+					<center><h1><b>Client Configuration</b></h1></center>
+				<form action="/cgi-bin/hadoop/cliconf.py">
+                    		        <center><h2>For Configuring</h2></center>
+					<center><div class="container">
+						<div class='row'>
+							<div class='col-6 col-md-4'>
+								<h4>Enter Your Client Name</h4>
+							</div>
+							<div class='col-6 col-md-4'>
+								 <input name='osname' style='position: absolute; right: -250px;' type="text" class='form-control' placeholder="Enter Client Name Here">
+							</div>
+						</div>
+
+						<div class="row">
+							 <div class="col-6 col-md-4">
+						     		<h4>Provide Namenode IP</h4>
+						   	</div>
+				      			<div class="col-6 col-md-4">
+							      <input name='iadd' class="form-control" style='position: absolute; right: -250px;' type="text" placeholder="0.0.0.0">	
+							</div>
+						</div><br>
+							<button type="submit"  class="btn btn-primary " >Submit</button>
+						</div></center>
+				</form><br>
+
+				<form action='/cli-bin/hadoop/cliremove.py'>
+					<center><h2>For Removing File</h2>
+					<center><div class='container'>
+						<div class='row'>
+                                                        <div class='col-6 col-md-4'>
+                                                                <h4>Enter Your Client Name</h4>
+                                                        </div>
+                                                        <div class='col-6 col-md-4'>
+                                                                 <input name='osname' style='position: absolute; right: -250px;' type="text" class='form-control' placeholder="Enter Client Name Here">
+                                                        </div>
+                                                </div>
+			
+						 <div class='row'>
+                                                         <div class='col-6 col-md-4'>
+                                                                 <h4>Enter Name of  File <br> with Extension to Be Remove  </h4>
+                                                         </div>
+                                                         <div class='col-6 col-md-4' >
+                                                               <input name='filename'  style='position: absolute; right: -250px;' type="text" class='form-control' placeholder="Enter Name of file  with Extension">
+                                                         </div>
+						 </div><br>
+							<button type="submit"  class="btn btn-primary " >Submit</button>
+							 </div></center>
+				</form><br>  
+						
+						<form action='/cgi-bin/hadoop/cliupload.py' enctype='multipart/form-data'  >
+							<center><h2>For Uploading File</h2></center>
+							<center><div class='container'>
+						<div class="row">
+							<div class="col-6 col-md-4">
+								<h4> Enter Your Client Name  </h4>
+							</div>
+							<div class="col-6 col-md-4">
+								<input type='text' name='osname' style='position: absolute; right: -250px' class='form-control' placeholder='Enter Client Name' >
+                         				 </div>
+						</div>
+
+						<div class='row'>
+							<div class='col-6 col-md-4'>
+								<h4>Enter Name of  File <br> with Extension to Be Upload  </h4>
+							</div>
+							<div class="col-6 col-md-4">
+								<input name='ufile' type='file' style='position: absolute; right: -250px'  class='btn btn-primary btn-lg float-left' >
+ 							 </div>
+						</div><br>
+							<button type="submit"  class="btn btn-primary " >Submit</button>
+							</div></center>  
+						</form><br>
+
+						<form action='/cgi-bin/hadoop/clistop.py'>
+							<center><h2>For Stopping</h2></center>
+							<center><div class='container'>
+						<div class='row'>
+							 <div class="col-6 col-md-4">
+                                                                <h4> Enter Your Client Name  </h4>
+                                                        </div>
+                                                        <div class="col-6 col-md-4">
+                                                                <input type='text' name='osname' style='position: absolute; right: -250px' class='form-control' placeholder='Enter Client Name' >
+                                                         </div>
+                                                </div>
+						<br>  <button type="submit" formaction="/cgi-bin/hadoop/slavestop.py"  class="btn btn-primary " >Stop Slave</button>
+						</div></center><br>
+						</form>
+					</div>
+				</div>
+			</div>
+        </div> <!-- end of page-content-wrapper -->
+    </div> <!-- end of wrapper -->
+    
+
+    <!-- Scripts Libraries -->
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+	
+	<!-- Custom Scripts -->
+    <script>
+    <!-- Menu Toggle Script -->
+	$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+	
+	/* Smooth Scrolling To Anchors  */
+		$(function() {
+			$('a[href*="#"]:not([data-toggle="tab"])').click(function() {
+				if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+					if (target.length) {
+						$('html, body').animate({
+							scrollTop: target.offset().top
+						}, 700);
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>
